@@ -1,0 +1,12 @@
+[project]
+name = "energy-chatbot"
+version = "0.1.0"
+description = "Energy Sector Chatbot using OpenRouter"
+requires-python = ">=3.10"
+dependencies = [
+    "openai",
+    "python-dotenv",
+]
+
+[tool.uv]
+dev-dependencies = []
