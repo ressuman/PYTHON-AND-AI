@@ -1,0 +1,26 @@
+[project]
+name = "sankofa-hub"
+version = "0.1.0"
+description = "Multi-bot chatbot system powered by OpenRouter"
+requires-python = ">=3.11"
+dependencies = [
+    "httpx>=0.27.0",
+    "fastapi>=0.115.0",
+    "uvicorn>=0.32.0",
+    "python-dotenv>=1.0.0",
+]
+
+[dependency-groups]
+dev = [
+    "ruff>=0.7.0",
+    "mypy>=1.10.0",
+]
+
+[tool.ruff]
+line-length = 88
+target-version = "py311"
+
+[tool.mypy]
+python_version = "3.11"
+warn_return_any = true
+warn_unused_ignores = true
