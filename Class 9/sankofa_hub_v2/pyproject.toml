@@ -1,0 +1,37 @@
+[project]
+name = "sankofa-hub"
+version = "0.1.0"
+description = "Multi-bot chatbot system powered by OpenRouter"
+requires-python = ">=3.11"
+dependencies = [
+    "httpx>=0.27.0",
+    "fastapi>=0.115.0",
+    "uvicorn>=0.32.0",
+    "python-dotenv>=1.0.0",
+    "sqlalchemy>=2.0.51",
+    "asyncpg>=0.31.0",
+    "alembic>=1.18.5",
+    "python-jose[cryptography]>=3.5.0",
+    "passlib[bcrypt]>=1.7.4",
+    "bcrypt>=5.0.0",
+    "chromadb>=1.5.9",
+    "sentence-transformers>=5.6.0",
+    "aiosqlite>=0.22.1",
+    "fastapi-limiter>=0.2.0",
+    "email-validator>=2.3.0",
+]
+
+[dependency-groups]
+dev = [
+    "ruff>=0.7.0",
+    "mypy>=1.10.0",
+]
+
+[tool.ruff]
+line-length = 88
+target-version = "py311"
+
+[tool.mypy]
+python_version = "3.11"
+warn_return_any = true
+warn_unused_ignores = true
