@@ -1,0 +1,131 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+@import "shadcn/tailwind.css";
+
+@custom-variant dark (&:is(.dark *));
+
+:root {
+  --background: #0a0a0f;
+  --surface: #111118;
+  --surface-2: #1a1a2e;
+  --border: #1e1e2e;
+  --primary: #6366f1;
+  --primary-hover: #4f46e5;
+  --legal-accent: #8b5cf6;
+  --code-accent: #10b981;
+  --general-accent: #f59e0b;
+  --text-primary: #f8f8ff;
+  --text-muted: #9ca3af;
+  --text-subtle: #6b7280;
+  --danger: #ef4444;
+  --success: #10b981;
+  --radius: 0.625rem;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-surface: var(--surface);
+  --color-surface-2: var(--surface-2);
+  --color-border: var(--border);
+  --color-primary: var(--primary);
+  --color-primary-hover: var(--primary-hover);
+  --color-legal-accent: var(--legal-accent);
+  --color-code-accent: var(--code-accent);
+  --color-general-accent: var(--general-accent);
+  --color-text-primary: var(--text-primary);
+  --color-text-muted: var(--text-muted);
+  --color-text-subtle: var(--text-subtle);
+  --color-danger: var(--danger);
+  --color-success: var(--success);
+  --font-sans: var(--font-sans);
+  --font-mono: var(--font-mono);
+  --color-sidebar-ring: var(--border);
+  --color-sidebar-border: var(--border);
+  --color-sidebar-accent-foreground: var(--text-primary);
+  --color-sidebar-accent: var(--surface-2);
+  --color-sidebar-primary-foreground: var(--text-primary);
+  --color-sidebar-primary: var(--primary);
+  --color-sidebar-foreground: var(--text-muted);
+  --color-sidebar: var(--surface);
+  --color-chart-5: var(--code-accent);
+  --color-chart-4: var(--legal-accent);
+  --color-chart-3: var(--general-accent);
+  --color-chart-2: var(--primary);
+  --color-chart-1: var(--primary-hover);
+  --color-ring: var(--primary);
+  --color-input: var(--surface-2);
+  --color-border: var(--border);
+  --color-destructive: var(--danger);
+  --color-accent-foreground: var(--text-primary);
+  --color-accent: var(--surface-2);
+  --color-muted-foreground: var(--text-muted);
+  --color-muted: var(--surface);
+  --color-secondary-foreground: var(--text-primary);
+  --color-secondary: var(--surface-2);
+  --color-primary-foreground: #ffffff;
+  --color-popover-foreground: var(--text-primary);
+  --color-popover: var(--surface);
+  --color-card-foreground: var(--text-primary);
+  --color-card: var(--surface);
+  --radius-sm: calc(var(--radius) * 0.6);
+  --radius-md: calc(var(--radius) * 0.8);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) * 1.4);
+  --radius-2xl: calc(var(--radius) * 1.8);
+  --radius-3xl: calc(var(--radius) * 2.2);
+  --radius-4xl: calc(var(--radius) * 2.6);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-text-primary;
+    font-family: var(--font-sans), system-ui, sans-serif;
+  }
+}
+
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #1e1e2e;
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #2e2e3e;
+}
+
+@keyframes hero-gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.hero-gradient-bg {
+  background: linear-gradient(-45deg, #6366f1, #8b5cf6, #10b981, #f59e0b);
+  background-size: 400% 400%;
+  animation: hero-gradient 15s ease infinite;
+}
+
+.gradient-text {
+  background: linear-gradient(90deg, #6366f1, #8b5cf6, #10b981);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+}
