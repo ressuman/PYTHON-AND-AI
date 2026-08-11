@@ -29,7 +29,7 @@
         ./sync-justice.ps1
 #>
 
-$ErrorActionPreference = "Stop"
+$ErrorActionPreference = "Continue"
 
 # ---- CONFIG: adjust only if paths/names ever change ----
 $Prefix       = "Class 10/Example 2/Agentic AI_1"
@@ -81,7 +81,7 @@ if (-not $remoteHead) { Fail "Could not find $remoteRef. Has the remote repo eve
 
 # 4. Build a fresh split of the CURRENT full folder history (from main)
 $tempSplitBranch = "justice-sync-tmp-split"
-git branch -D $tempSplitBranch 2>$null | Out-Null
+git branch -D $tempSplitBranch 2>&1 | Out-Null
 
 Write-Step "Splitting '$Prefix' out of main's current history (local only, nothing pushed yet)"
 git subtree split --prefix="$Prefix" -b $tempSplitBranch
@@ -115,7 +115,7 @@ if ($remoteTree -eq $splitTree) {
 Write-Step "New changes detected. Preparing a combined branch (remote history + new changes)"
 
 $combinedBranch = "justice-sync-tmp-combined"
-git branch -D $combinedBranch 2>$null | Out-Null
+git branch -D $combinedBranch 2>&1 | Out-Null
 git branch $combinedBranch $remoteRef
 
 # Create a single "catch-up" commit that updates the tree to match the
