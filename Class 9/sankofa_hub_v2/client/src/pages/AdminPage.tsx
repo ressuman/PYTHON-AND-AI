@@ -144,7 +144,7 @@ export function AdminPage() {
     refetchInterval: 30000,
   })
 
-  const { data: usersData, refetch: refetchUsers } = useQuery({
+  const { data: usersData } = useQuery({
     queryKey: ['admin-users', userPage, searchQuery],
     queryFn: () => adminApi.getUsers(userPage, 20, searchQuery),
   })

@@ -3,7 +3,7 @@ import { Link, useNavigate, useParams } from 'react-router-dom'
 import { useQueryClient } from '@tanstack/react-query'
 import {
   Menu, Plus, LogOut, PanelLeftClose, PanelLeft,
-  Home, Shield, Trash2,
+  Home, Shield,
 } from 'lucide-react'
 import { v4 as uuidv4 } from 'uuid'
 import { Button } from '@/components/ui/button'
@@ -13,7 +13,7 @@ import { ChatInput } from '@/components/chat/ChatInput'
 import { ThinkingIndicator } from '@/components/chat/ThinkingIndicator'
 import { TypingIndicator } from '@/components/chat/TypingIndicator'
 import { SankofaLogo } from '@/components/common/AdinkraPattern'
-import { useAuthStore } from '@/stores/authStore'
+// import { useAuthStore } from '@/stores/authStore'
 import { useAuth } from '@/hooks/useAuth'
 import { useHistory } from '@/hooks/useHistory'
 import { useConversation } from '@/hooks/useConversation'

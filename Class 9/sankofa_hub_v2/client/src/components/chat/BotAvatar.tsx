@@ -37,7 +37,8 @@ export function BotAvatar({ botId, color, bgColor, size = 'sm', showStatus }: Bo
         style={{
           backgroundColor: bgColor || fallbackBg,
           color: color || fallbackColor,
-          ringColor: color || fallbackColor,
+          // ringColor: color || fallbackColor,
+          ['--ring-color' as string]: color || fallbackColor,
         }}
         aria-hidden="true"
       >

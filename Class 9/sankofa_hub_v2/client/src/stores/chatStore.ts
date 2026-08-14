@@ -31,7 +31,7 @@ interface ChatStore {
 
 export const useChatStore = create<ChatStore>()(
   persist(
-    (set, get) => ({
+    (set) => ({
       isOpen: false,
       isMinimized: false,
       messages: [],
