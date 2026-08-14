@@ -44,14 +44,26 @@ configure(
 )
 
 
+# @asynccontextmanager
+# async def lifespan(app: FastAPI):
+#     await init_db()
+#     get_bot(ROUTER_BOT_ID)
+#     for sid in SPECIALIST_BOT_IDS.values():
+#         get_bot(sid)
+#     yield
+
+# REPLACE the lifespan with this:
 @asynccontextmanager
 async def lifespan(app: FastAPI):
     await init_db()
-    get_bot(ROUTER_BOT_ID)
-    for sid in SPECIALIST_BOT_IDS.values():
-        get_bot(sid)
+    try:
+        get_bot(ROUTER_BOT_ID)
+        for sid in SPECIALIST_BOT_IDS.values():
+            get_bot(sid)
+        print("[Startup] All bots loaded successfully.")
+    except Exception as e:
+        print(f"[Startup] WARNING: Bot loading failed: {e}")
     yield
-
 
 app = FastAPI(title="Sankofa Hub", version="2.0.0", lifespan=lifespan)
 

@@ -2,7 +2,7 @@ import os
 
 from sentence_transformers import SentenceTransformer
 
-from rag.vector_store import vector_store
+from rag.vector_store import get_vector_store
 
 EMBED_MODEL_NAME = os.getenv("EMBED_MODEL", "all-MiniLM-L6-v2")
 SCORE_FLOOR = float(os.getenv("RAG_SCORE_FLOOR", "0.45"))
@@ -29,9 +29,13 @@ def retrieve_context(query: str, domain: str) -> str:
 
     collection_name = f"{domain}_kb"
     query_embedding = embed(query)
-    results = vector_store.query(
-        collection_name, query_embedding, top_k=TOP_K_RETRIEVE
-    )
+    # results = vector_store.query(
+    #     collection_name, query_embedding, top_k=TOP_K_RETRIEVE
+    # )
+
+    results = get_vector_store().query(
+    collection_name, query_embedding, top_k=TOP_K_RETRIEVE
+)
 
     relevant = [r for r in results if r["score"] >= SCORE_FLOOR]
     if not relevant:

@@ -51,4 +51,11 @@ class VectorStore:
         return output
 
 
-vector_store = VectorStore()
+# vector_store = VectorStore()
+_vector_store_instance = None
+
+def get_vector_store() -> VectorStore:
+    global _vector_store_instance
+    if _vector_store_instance is None:
+        _vector_store_instance = VectorStore()
+    return _vector_store_instance

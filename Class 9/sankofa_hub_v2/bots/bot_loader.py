@@ -116,5 +116,5 @@ BOT_DISPLAY_NAMES: dict[str, str] = {
     "language-obaa-sarpongmaa_bot": "Obaa Sarpongmaa",
 }
 
-for _bot_id in [ROUTER_BOT_ID] + list(SPECIALIST_BOT_IDS.values()):
-    register_bot(_bot_id)
+# for _bot_id in [ROUTER_BOT_ID] + list(SPECIALIST_BOT_IDS.values()):
+#     register_bot(_bot_id)
