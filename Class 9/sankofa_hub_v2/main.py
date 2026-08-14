@@ -55,9 +55,27 @@ async def lifespan(app: FastAPI):
 
 app = FastAPI(title="Sankofa Hub", version="2.0.0", lifespan=lifespan)
 
+# app.add_middleware(
+#     CORSMiddleware,
+#     allow_origins=["http://localhost:5173", "http://localhost:3000"],
+#     allow_credentials=True,
+#     allow_methods=["*"],
+#     allow_headers=["*"],
+# )
+
+# NEW — paste this in place of the block above
+origins = [
+    "http://localhost:5173",
+    "http://localhost:3000",
+]
+
+frontend_url = os.getenv("FRONTEND_URL", "")
+if frontend_url:
+    origins.append(frontend_url)
+
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["http://localhost:5173", "http://localhost:3000"],
+    allow_origins=origins,
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
